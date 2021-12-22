@@ -3,10 +3,10 @@ import 'bootstrap/dist/css/bootstrap.css'
 const Calculator = () => {
     var firstNum = 0;
     var secondNum = 0;
-    var result ;
+    var result ='' ;
 
     const calculator = (operation) => {
-
+        let ketQua =''
         switch (operation) {
             case '+':
                 result = parseInt(firstNum) + parseInt(secondNum);
@@ -21,8 +21,7 @@ const Calculator = () => {
                 result = parseInt(firstNum) / parseInt(secondNum);
                 break;
         }
-
-
+        document.getElementById('display').innerText = result
     }
 
     return (
@@ -94,7 +93,7 @@ const Calculator = () => {
 
             <br />
             <br />
-            <h6>Kết quả: {result}</h6>
+            <h6>Kết quả: <span id='display'/></h6>
             <br />
 
 
