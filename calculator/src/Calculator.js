@@ -1,4 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.css'
+import Button from './Button';
+
 
 const Calculator = () => {
     var firstNum = 0;
@@ -6,7 +8,7 @@ const Calculator = () => {
     var result ='' ;
 
     const calculator = (operation) => {
-        let ketQua =''
+
         switch (operation) {
             case '+':
                 result = parseInt(firstNum) + parseInt(secondNum);
@@ -56,7 +58,7 @@ const Calculator = () => {
                 }}
             >
                 +
-            </button>
+            </button>   
 
             <button
                 type='button'
@@ -88,7 +90,14 @@ const Calculator = () => {
                 /
             </button>
 
+            <Button 
+                type='button'
+                label= '+'
+                onClick={() => {
+                    calculator('+')
+                }}
 
+            />
 
 
             <br />
