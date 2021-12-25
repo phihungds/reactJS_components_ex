@@ -1,4 +1,6 @@
 import React from "react";
+import Button from "./button";
+import Input from "./input";
 
 class Student extends React.Component {
     constructor() {
@@ -23,13 +25,28 @@ class Student extends React.Component {
                 address: 'Hải Phòng'
             }
         ]
+        this.draft = 
+          { id : '',
+            name : '',
+            age : '',
+            address: ''
+            } 
+        
     }
     
 
     render() {
         return (
-            <div>
+            <div className="student-list">
+
                 <h2>Students</h2>
+
+                <Input placeholder='ID' onChange={(e) => {this.draft.id = e.target.value}} />
+                <Input placeholder='Name' onChange={(e) => {this.draft.name = e.target.value}} />
+                <Input placeholder='Age' onChange={(e) => {this.draft.age = e.target.value}} />
+                <Input placeholder='Address' onChange={(e) => {this.draft.address = e.target.value}} />
+
+                <Button label="Add" onClick={() => {this.students.push(this.draft); console.log(this.students)}} />
                 <table>
                     <thead>
                         <tr>
@@ -50,6 +67,9 @@ class Student extends React.Component {
                         ))}
                     </tbody>
                 </table>
+                <br/>
+                
+
             </div>
         )
     }
