@@ -57,7 +57,8 @@ class Student extends React.Component {
                         </tr>
                     </thead>
                     <tbody>
-                        {this.students.map((student) => (
+                        { 
+                        this.students.map((student) => (
                             <tr>
                                 <td>{student.id}</td>
                                 <td>{student.name}</td>
