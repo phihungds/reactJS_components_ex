@@ -5,7 +5,7 @@ import Input from "./input";
 class Student extends React.Component {
     constructor() {
         super()
-        this.students = [
+        this.state = { students :[
             {
                 id: 1,
                 name: 'Nguyễn Văn A',
@@ -23,8 +23,8 @@ class Student extends React.Component {
                 name: 'Nguyễn Văn A',
                 age: '19',
                 address: 'Hải Phòng'
-            }
-        ]
+            }]
+        }
         this.draft = 
           { id : '',
             name : '',
@@ -32,6 +32,16 @@ class Student extends React.Component {
             address: ''
             } 
         
+    }
+    updateList = () => {
+        this.state.students.push(this.draft)
+        this.setState(this.state)
+        this.draft = 
+          { id : '',
+            name : '',
+            age : '',
+            address: ''
+            } 
     }
     
 
@@ -46,7 +56,7 @@ class Student extends React.Component {
                 <Input placeholder='Age' onChange={(e) => {this.draft.age = e.target.value}} />
                 <Input placeholder='Address' onChange={(e) => {this.draft.address = e.target.value}} />
 
-                <Button label="Add" onClick={() => {this.students.push(this.draft); console.log(this.students)}} />
+                <Button onClick={this.updateList}>Add new student</Button> 
                 <table>
                     <thead>
                         <tr>
@@ -58,7 +68,7 @@ class Student extends React.Component {
                     </thead>
                     <tbody>
                         { 
-                        this.students.map((student) => (
+                        this.state.students.map((student) => (
                             <tr>
                                 <td>{student.id}</td>
                                 <td>{student.name}</td>
